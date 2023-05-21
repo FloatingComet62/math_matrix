@@ -5,8 +5,9 @@
 
 ## Examples
 
-```
+```rust
 use matrices::Matrix;
+
 let matrix = Matrix::new(vec![1, 2, 3, 4, 5, 6], (3, 2));
 let invalid_matrix = Matrix::new(vec![1, 2, 3], (3, 2));
 
@@ -19,8 +20,7 @@ assert_eq!(invalid_matrix.is_ok(), false);
 
 Using functions to describe the matrix
 
-```
-use matrices::Matrix;
+```rust
 // Function generated matrix
 // i^2 + 3j - 7
 let function_generated = Matrix::generate(|i, j| (i * i + 3 * j) as i32 - 7, (5, 5));
@@ -46,8 +46,7 @@ assert_eq!(function_generated[(4, 3)], 18);
 - `Scalar matrix` - A diagonal matrix with only 1 value
 - `Identity matrix` - A scalar matrix with the value of 1
 
-```
-use matrices::Matrix;
+```rust;
 // Row matrix
 let row_matrix = Matrix::row_matrix(vec![1, 2, 3, 4, 5, 6, 7]);
 assert_eq!(row_matrix[(1, 5)], 5);
@@ -100,8 +99,7 @@ assert_eq!(identity_matrix[(3, 3)], 1);
 
 Traces are the diagonal items of a square matrix<br>
 
-```
-use matrices::Matrix;
+```rust
 // Traces
 let random_matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9, 9], (4, 4)).unwrap();
 let trace = random_matrix.trace();
@@ -124,7 +122,7 @@ assert_eq!(trace[2], 45);
 - `get` - Get the item from the matrix
 - `set` - Set the item from the matrix
 
-```
+```rust
 let mut matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
 // 6   4   87
 // 3   6   89
