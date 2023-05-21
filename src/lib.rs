@@ -36,7 +36,7 @@ impl Debug for Errors {
 ///
 /// ## Examples
 /// ```
-/// use matrices::Matrix;
+/// use math_matrix::Matrix;
 /// let matrix = Matrix::new(vec![1, 2, 3, 4, 5, 6], (3, 2));
 /// let invalid_matrix = Matrix::new(vec![1, 2, 3], (3, 2));
 ///
@@ -48,7 +48,7 @@ impl Debug for Errors {
 /// ### Matrixes from functions
 /// Using functions to describe the matrix
 /// ```
-/// use matrices::Matrix;
+/// use math_matrix::Matrix;
 /// // Function generated matrix
 /// // i^2 + 3j - 7
 /// let function_generated = Matrix::generate(|i, j| (i * i + 3 * j) as i32 - 7, (5, 5));
@@ -74,7 +74,7 @@ impl Debug for Errors {
 /// * `Identity matrix` - A scalar matrix with the value of 1
 ///
 /// ```
-/// use matrices::Matrix;
+/// use math_matrix::Matrix;
 /// // Row matrix
 /// let row_matrix = Matrix::row_matrix(vec![1, 2, 3, 4, 5, 6, 7]);
 /// assert_eq!(row_matrix[(1, 5)], 5);
@@ -126,7 +126,7 @@ impl Debug for Errors {
 /// Traces are the diagonal items of a square matrix<br>
 /// Returns [`Result`], [`Ok`] if the matrix is square, [`Err`] otherwise
 /// ```
-/// use matrices::Matrix;
+/// use math_matrix::Matrix;
 /// // Traces
 /// let random_matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9, 9], (4, 4)).unwrap();
 /// let trace = random_matrix.trace();
@@ -147,7 +147,7 @@ impl Debug for Errors {
 /// * `get` - Returns a [`Result`], [`Ok`] if indexes is within the bounds, [`Err`] otherwise
 /// * `set` - Returns a [`Result`], [`Ok`] if the value was updated, [`Err`] otherwise
 /// ```
-/// use matrices::Matrix;
+/// use math_matrix::Matrix;
 /// let mut matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
 /// // 6   4   87
 /// // 3   6   89
@@ -174,7 +174,7 @@ pub struct Matrix {
 impl Matrix {
     /// # Matrix Constructor
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![1, 2, 3, 4, 5, 6], (3, 2));
     /// let invalid_matrix = Matrix::new(vec![1, 2, 3], (3, 2));
     ///
@@ -191,7 +191,7 @@ impl Matrix {
     /// # Matrix generated with function
     /// Using functions to describe the matrix
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// // i^2 + 3j - 7
     /// let function_generated = Matrix::generate(|i, j| (i * i + 3 * j) as i32 - 7, (5, 5));
     /// // -3  0   3   6   9
@@ -221,7 +221,7 @@ impl Matrix {
     /// # Row matrix
     /// eg. `1  2  3  4  5  6  7`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let row_matrix = Matrix::row_matrix(vec![1, 2, 3, 4, 5, 6, 7]);
     /// assert_eq!(row_matrix[(1, 5)], 5);
     /// assert_eq!(row_matrix.get(2, 5).is_err(), true);
@@ -236,7 +236,7 @@ impl Matrix {
     /// # Column matrix
     /// eg. <br>`1`<br>`2`<br>`3`<br>`4`<br>`5`<br>`6`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let column_matrix = Matrix::column_matrix(vec![1, 2, 3, 4, 5, 6]);
     /// assert_eq!(column_matrix[(3, 1)], 3);
     /// assert_eq!(column_matrix.get(3, 5).is_err(), true);
@@ -251,7 +251,7 @@ impl Matrix {
     /// # Null Matrix
     /// eg.<br>`0  0  0  0  0`<br>`0  0  0  0  0`<br>`0  0  0  0  0`<br>`0  0  0  0  0`<br>`0  0  0  0  0`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let null_matrix = Matrix::null_matrix((10, 10));
     /// assert_eq!(null_matrix[(5, 5)], 0);
     /// assert_eq!(null_matrix[(10, 10)], 0);
@@ -264,7 +264,7 @@ impl Matrix {
     /// Returns [`Result`], [`Ok`] if the items can be arranged like a square, [`Err`] otherwise<br>
     /// eg.<br>`1  2  3  4  6`<br>`3  3  8  5  1`<br>`7  4  7  1  2`<br>`2  3  4  5  4`<br>`5  7  2  9  9`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let square_matrix = Matrix::square_matrix(vec![1, 2, 3, 4]);
     /// let invalid_square_matrix = Matrix::square_matrix(vec![1, 2, 3]);
     ///
@@ -286,7 +286,7 @@ impl Matrix {
     /// # Diagonal Matrix
     /// eg.<br>`1  0  0  0  0`<br>`0  7  0  0  0`<br>`0  0  3  0  0`<br>`0  0  0  6  0`<br>`0  0  0  0  9`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let diagonal_matrix = Matrix::diagonal_matrix(vec![1, 2, 3, 4, 5, 6, 7, 8]);
     ///
     /// assert_eq!(diagonal_matrix.order, (8, 8));
@@ -309,7 +309,7 @@ impl Matrix {
     /// # Scalar Matrix
     /// eg.<br>`6  0  0  0  0`<br>`0  6  0  0  0`<br>`0  0  6  0  0`<br>`0  0  0  6  0`<br>`0  0  0  0  6`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let scalar_matrix = Matrix::scalar_matrix(5, 6);
     ///
     /// assert_eq!(scalar_matrix.order, (6, 6));
@@ -331,7 +331,7 @@ impl Matrix {
     /// # Identity Matrix
     /// eg.<br>`1  0  0  0  0`<br>`0  1  0  0  0`<br>`0  0  1  0  0`<br>`0  0  0  1  0`<br>`0  0  0  0  1`
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let identity_matrix = Matrix::identity_matrix(5);
     ///
     /// assert_eq!(identity_matrix.order, (5, 5));
@@ -347,7 +347,7 @@ impl Matrix {
     /// Returns [`Result`], [`Ok`] if the matrix is square, [`Err`] otherwise<br>
     /// eg.<br>` `**1**`  2  3  4  6`<br>`3  `**3**`  8  5  1`<br>`7  4  `**7**`  1  2`<br>`2  3  4  `**5**`  4`<br>`5  7  2  9 `**9**` `
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let random_matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9, 9], (4, 4)).unwrap();
     /// let trace = random_matrix.trace();
     /// // trace: [ 6, 89, 45, 9 ]
@@ -381,7 +381,7 @@ impl Matrix {
     }
     /// # Is the matrix horizontal?
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89
@@ -396,7 +396,7 @@ impl Matrix {
     }
     /// # Is the matrix vertical?
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89
@@ -411,7 +411,7 @@ impl Matrix {
     }
     /// # Get an item from the matrix
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89
@@ -429,7 +429,7 @@ impl Matrix {
     }
     /// # Get an entire row
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89
@@ -457,7 +457,7 @@ impl Matrix {
     }
     /// # Get an entire column
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89
@@ -486,7 +486,7 @@ impl Matrix {
     }
     /// # Change an item in the matrix
     /// ```
-    /// use matrices::Matrix;
+    /// use math_matrix::Matrix;
     /// let mut matrix = Matrix::new(vec![6, 4, 87, 3, 6, 89, 6, 8, 4, 2, 45, 2, 5, 7, 9], (5, 3)).unwrap();
     /// // 6   4   87
     /// // 3   6   89

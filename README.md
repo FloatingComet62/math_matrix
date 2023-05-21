@@ -6,7 +6,7 @@
 ## Examples
 
 ```rust
-use matrices::Matrix;
+use math_matrix::Matrix;
 
 let matrix = Matrix::new(vec![1, 2, 3, 4, 5, 6], (3, 2));
 let invalid_matrix = Matrix::new(vec![1, 2, 3], (3, 2));

@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "matrices"
+name = "math_matrix"
 version = "1.0.0"
