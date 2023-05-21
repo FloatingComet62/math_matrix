@@ -46,7 +46,7 @@ assert_eq!(function_generated[(4, 3)], 18);
 - `Scalar matrix` - A diagonal matrix with only 1 value
 - `Identity matrix` - A scalar matrix with the value of 1
 
-```rust;
+```rust
 // Row matrix
 let row_matrix = Matrix::row_matrix(vec![1, 2, 3, 4, 5, 6, 7]);
 assert_eq!(row_matrix[(1, 5)], 5);
