@@ -7,9 +7,8 @@ authors = ["FloatingComet62 <shubh2007rai@gmail.com>"]
 documentation = "https://docs.rs/math_matrix"
 readme = "README.md"
 repository = "https://github.com/FloatingComet62/math_matrix"
-license = "MIT"
 license-file = "LICENSE"
 keywords = ["math", "matrix"]
-categories = ["math"]
+categories = ["mathematics"]
 
 [dependencies]
