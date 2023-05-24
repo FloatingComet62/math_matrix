@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "cargo",
+      "command": "test",
+      "problemMatcher": ["$rustc", "$rust-panic"],
+      "group": "test",
+      "label": "rust: cargo test"
+    },
+    {
+      "type": "cargo",
+      "command": "build",
+      "problemMatcher": ["$rustc", "$rust-panic"],
+      "group": "build",
+      "label": "rust: cargo build"
+    },
+    {
+      "type": "cargo",
+      "command": "check",
+      "problemMatcher": ["$rustc", "$rust-panic"],
+      "group": "build",
+      "label": "rust: cargo check"
+    },
+    {
+      "type": "cargo",
+      "command": "clippy",
+      "problemMatcher": ["$rustc", "$rust-panic"],
+      "group": "build",
+      "label": "rust: cargo clippy"
+    }
+  ]
+}
