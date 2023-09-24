@@ -735,6 +735,7 @@ impl Display for Matrix {
     }
 }
 
+#[cfg(test)]
 mod tests {
     #[test]
     fn addition() {
